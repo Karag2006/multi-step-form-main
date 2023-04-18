@@ -1,9 +1,14 @@
 <script setup>
     import { RouterView } from "vue-router";
-    import { Footer } from "@/Components";
+    import { Navigation, Footer } from "@/Components";
 </script>
 
 <template>
-    <RouterView />
+    <div class="card">
+        <Navigation />
+        <main>
+            <RouterView />
+        </main>
+    </div>
     <Footer />
 </template>
