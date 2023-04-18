@@ -1,41 +1,29 @@
-<script setup></script>
+<script setup>
+    import { PlanItem } from "../Components";
+    import { useAppStore } from "../Store/AppStore";
+
+    const store = useAppStore();
+</script>
 
 <template>
     <form @submit.prevent="">
-        <div>
+        <div class="planSelect">
             <h1>Select your plan</h1>
             <p>You have the option of monthly or yearly billing.</p>
-            <div class="plan">
-                <div>
-                    <img src="" alt="" />
-                </div>
-                <div>
-                    <h3>Arcade</h3>
-                    <p>9€/mo</p>
-                </div>
-            </div>
-            <div class="plan">
-                <div>
-                    <img src="" alt="" />
-                </div>
-                <div>
-                    <h3>Advanced</h3>
-                    <p>12€/mo</p>
-                </div>
-            </div>
-            <div class="plan">
-                <div>
-                    <img src="" alt="" />
-                </div>
-                <div>
-                    <h3>Pro</h3>
-                    <p>15€/mo</p>
-                </div>
-            </div>
+            <ul>
+                <PlanItem
+                    v-for="plan in store.plans"
+                    :key="plan.level"
+                    :plan="plan"
+                />
+            </ul>
             <div class="paymentSchedule">
-                <p class="monthly"></p>
-                <input type="radio" />
-                <p class="yearly"></p>
+                <p class="monthly">Monthly</p>
+                <label class="switch">
+                    <input type="checkbox" />
+                    <span class="slider round"></span>
+                </label>
+                <p class="yearly">Yearly</p>
             </div>
         </div>
         <div class="form--navigation">

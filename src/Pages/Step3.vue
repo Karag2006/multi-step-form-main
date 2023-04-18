@@ -1,4 +1,9 @@
-<script setup></script>
+<script setup>
+    import { useAppStore } from "../Store/AppStore";
+    import { AddOnItem } from "../Components";
+
+    const store = useAppStore();
+</script>
 
 <template>
     <form @submit.prevent="">
@@ -6,18 +11,11 @@
             <h1>Pick add-ons</h1>
             <p>Add-ons help enhance your gaming experience.</p>
             <ul>
-                <li>
-                    <div>
-                        <input type="checkbox" />
-                    </div>
-                    <div>
-                        <h3>Online Service</h3>
-                        <p>Access to multiplayer Games</p>
-                    </div>
-                    <div>
-                        <p class="addedPrice">+1€/mo</p>
-                    </div>
-                </li>
+                <AddOnItem
+                    v-for="item in store.addOns"
+                    :key="item.id"
+                    :item="item"
+                />
             </ul>
         </div>
         <div class="form--navigation">

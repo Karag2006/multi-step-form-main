@@ -12,18 +12,24 @@ export const useAppStore = defineStore("app", () => {
         {
             level: 1,
             name: "Arcade",
+            img: "icon-arcade.svg",
+            alt: "Arcade Plan Icon",
             mo: 9,
             yr: 90,
         },
         {
             level: 2,
             name: "Advanced",
+            img: "icon-advanced.svg",
+            alt: "Advanced Plan Icon",
             mo: 12,
             yr: 120,
         },
         {
             level: 3,
             name: "Pro",
+            img: "icon-pro.svg",
+            alt: "Pro Plan Icon",
             mo: 15,
             yr: 150,
         },
@@ -69,7 +75,7 @@ export const useAppStore = defineStore("app", () => {
         },
         plan: {
             level: "",
-            schedule: "",
+            schedule: "yearly",
         },
         addOns: {
             selected: [],
