@@ -3,8 +3,8 @@
 <template>
     <form @submit.prevent="">
         <div>
-            <h1>Personal Info</h1>
-            <p>Please provide ...</p>
+            <h1>Select your plan</h1>
+            <p>You have the option of monthly or yearly billing.</p>
             <div class="plan">
                 <div>
                     <img src="" alt="" />
