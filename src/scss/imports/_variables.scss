@@ -1,0 +1,27 @@
+:root {
+    /* Colors */
+    /* Primary */
+
+    --hsl-marine-blue: 213, 96%, 18%;
+    --hsl-purplish-blue: 243, 100%, 62%;
+    --hsl-pastel-blue: 228, 100%, 84%;
+    --hsl-light-blue: 206, 94%, 87%;
+    --hsl-strawberry-red: 354, 84%, 57%;
+
+    --marine-blue: hsl(var(--hsl-marine-blue));
+    --purplish-blue: hsl(var(--hsl-purplish-blue));
+    --pastel-blue: hsl(var(--hsl-pastel-blue));
+    --light-blue: hsl(var(--hsl-light-blue));
+    --strawberry-red: hsl(var(--hsl-strawberry-red));
+
+    /* Neutral */
+    --hsl-cool-gray: 231, 11%, 63%;
+    --hsl-light-gray: 229, 24%, 87%;
+    --hsl-magnolia: 217, 100%, 97%;
+    --hsl-alabaster: 231, 100%, 99%;
+
+    --cool-gray: hsl(var(--hsl-cool-gray));
+    --light-gray: hsl(var(--hsl-light-gray));
+    --magnolia: hsl(var(--hsl-magnolia));
+    --alabaster: hsl(var(--hsl-alabaster));
+}
