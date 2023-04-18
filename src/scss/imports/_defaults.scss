@@ -1,12 +1,26 @@
 @font-face {
-    font-family: "Inter";
-    src: url("../../assets/fonts/Inter-VariableFont_slnt_wght.ttf");
-    font-weight: 400, 700, 800;
+    font-family: "Ubuntu";
+    src: url("../assets/fonts/Ubuntu-Regular.ttf");
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Ubuntu";
+    src: url("../assets/fonts/Ubuntu-Medium.ttf");
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Ubuntu";
+    src: url("../assets/fonts/Ubuntu-Bold.ttf");
+    font-weight: 700;
     font-display: swap;
 }
 
 :root {
-    --font-family: "Inter", sans-serif;
+    --font-family: "Ubuntu", sans-serif;
 
     --font-color: var(--dark-greyish-blue);
     --error-color: red;
