@@ -75,7 +75,7 @@ export const useAppStore = defineStore("app", () => {
         },
         plan: {
             level: "",
-            schedule: "yearly",
+            monthly: true,
         },
         addOns: {
             selected: [],

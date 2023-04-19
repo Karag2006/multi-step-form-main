@@ -15,7 +15,7 @@
                 <h3>{{ plan.name }}</h3>
                 <p>
                     {{
-                        store.contract.plan.schedule == "monthly"
+                        store.contract.plan.monthly == true
                             ? "$" + plan.mo + "/mo"
                             : "$" + plan.yr + "/yr"
                     }}

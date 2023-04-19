@@ -8,7 +8,7 @@
 <template>
     <li>
         <div>
-            <input type="checkbox" />
+            <input type="checkbox" :name="props.item.name" />
         </div>
         <div>
             <h3>{{ props.item.name }}</h3>

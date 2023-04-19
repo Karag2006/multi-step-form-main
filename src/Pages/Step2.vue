@@ -20,7 +20,11 @@
             <div class="paymentSchedule">
                 <p class="monthly">Monthly</p>
                 <label class="switch">
-                    <input type="checkbox" />
+                    <input
+                        type="checkbox"
+                        name="monthly"
+                        v-model="store.contract.plan.monthly"
+                    />
                     <span class="slider round"></span>
                 </label>
                 <p class="yearly">Yearly</p>
