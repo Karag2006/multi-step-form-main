@@ -6,7 +6,7 @@
 </script>
 
 <template>
-    <form @submit.prevent="">
+    <form @submit.prevent="store.handleSubmit(1)">
         <div>
             <h1>Personal Info</h1>
             <p>Please provide your name, email address and phone number.</p>

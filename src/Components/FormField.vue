@@ -17,7 +17,6 @@
             v-model="store.contract.customer[props.name]"
             :placeholder="props.placeholder"
             @focus="store.formElementFocus(props.name)"
-            @blur="store.formElementBlur(props.name)"
         />
         <span class="error" v-if="store.errors[props.name]">{{
             store.errors[props.name]

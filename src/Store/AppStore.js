@@ -1,12 +1,13 @@
 import { defineStore } from "pinia";
 import { ref } from "vue";
+import { router } from "../Router";
 
 export const useAppStore = defineStore("app", () => {
     const navItems = ref([
-        { id: 1, name: "Step1", text: "Your Info", url: "/" },
-        { id: 2, name: "Step2", text: "Select Plan", url: "/step2" },
-        { id: 3, name: "Step3", text: "Add-Ons", url: "/step3" },
-        { id: 4, name: "Step4", text: "Summary", url: "/step4" },
+        { id: 1, name: "Step1", text: "Your Info" },
+        { id: 2, name: "Step2", text: "Select Plan" },
+        { id: 3, name: "Step3", text: "Add-Ons" },
+        { id: 4, name: "Step4", text: "Summary" },
     ]);
     const plans = ref([
         {
@@ -82,5 +83,44 @@ export const useAppStore = defineStore("app", () => {
         },
     });
 
-    return { navItems, plans, addOns, classes, errors, contract };
+    const formElementFocus = (name) => {
+        classes.value[name] = "";
+        errors.value[name] = "";
+    };
+
+    const handleStepValidation = (step) => {
+        if (step == 1) {
+            let valid = true;
+            const fields = Object.keys(contract.value.customer);
+            fields.forEach((element) => {
+                if (!contract.value.customer[element]) {
+                    errors.value[element] = "This field is required";
+                    classes.value[element] = "error";
+                    valid = false;
+                }
+            });
+            return valid;
+        }
+    };
+
+    const handleSubmit = (step) => {
+        // Do step related validation check
+        if (handleStepValidation(step)) {
+            // if valid router push next step.
+            const nextStep = step + 1;
+            console.log(step);
+            router.push({ name: "Step" + nextStep });
+        }
+    };
+
+    return {
+        navItems,
+        plans,
+        addOns,
+        classes,
+        errors,
+        contract,
+        handleSubmit,
+        formElementFocus,
+    };
 });

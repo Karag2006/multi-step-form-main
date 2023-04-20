@@ -7,7 +7,13 @@
 
 <template>
     <li>
-        <button @click="">
+        <input
+            type="radio"
+            :value="plan.level"
+            v-model="store.contract.plan.level"
+            :id="'PlanLavel' + plan.level"
+        />
+        <label class="checkmark" :for="'PlanLavel' + plan.level">
             <div>
                 <img :src="'/assets/images/' + plan.img" :alt="plan.alt" />
             </div>
@@ -20,9 +26,25 @@
                             : "$" + plan.yr + "/yr"
                     }}
                 </p>
+                <p class="small" v-if="!store.contract.plan.monthly">
+                    2 months free
+                </p>
             </div>
-        </button>
+        </label>
     </li>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+    .checkmark {
+        display: block;
+    }
+
+    input {
+        opacity: 0;
+        position: absolute;
+
+        &:checked ~ .checkmark {
+            background-color: red;
+        }
+    }
+</style>

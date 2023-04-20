@@ -17,7 +17,7 @@
         <div>
             <p class="addedPrice">
                 {{
-                    store.contract.plan.schedule == "monthly"
+                    store.contract.plan.monthly == true
                         ? "+$" + item.mo + "/mo"
                         : "+$" + item.yr + "/yr"
                 }}

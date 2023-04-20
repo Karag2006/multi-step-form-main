@@ -1,4 +1,5 @@
 <script setup>
+    import { RouterLink } from "vue-router";
     import { PlanItem } from "../Components";
     import { useAppStore } from "../Store/AppStore";
 
@@ -31,7 +32,7 @@
             </div>
         </div>
         <div class="form--navigation">
-            <a href="/">Go Back</a>
+            <RouterLink :to="{ name: 'Step1' }">Go Back</RouterLink>
             <button type="submit">Next Step</button>
         </div>
     </form>
