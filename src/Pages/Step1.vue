@@ -7,9 +7,9 @@
 
 <template>
     <form @submit.prevent="store.handleSubmit(1)">
-        <div>
-            <h1>Personal Info</h1>
-            <p>Please provide your name, email address and phone number.</p>
+        <h1>Personal Info</h1>
+        <p>Please provide your name, email address and phone number.</p>
+        <div class="customerform">
             <FormField
                 name="name"
                 label="Name"
@@ -27,9 +27,16 @@
             />
         </div>
         <div class="form--navigation">
+            <div></div>
             <button type="submit">Next Step</button>
         </div>
     </form>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+    .customerform {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+</style>

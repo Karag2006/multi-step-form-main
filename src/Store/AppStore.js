@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import { router } from "../Router";
 
 export const useAppStore = defineStore("app", () => {
@@ -82,6 +82,14 @@ export const useAppStore = defineStore("app", () => {
             selected: [],
         },
     });
+    const selectedPlan = computed(() => {
+        if (contract.value.plan.level)
+            return plans.value.filter(
+                (plan) => plan.level == contract.value.plan.level
+            )[0];
+
+        return { name: "N/A", mo: 0, yr: 0 };
+    });
 
     const formElementFocus = (name) => {
         classes.value[name] = "";
@@ -89,8 +97,8 @@ export const useAppStore = defineStore("app", () => {
     };
 
     const handleStepValidation = (step) => {
+        let valid = true;
         if (step == 1) {
-            let valid = true;
             const fields = Object.keys(contract.value.customer);
             fields.forEach((element) => {
                 if (!contract.value.customer[element]) {
@@ -99,8 +107,11 @@ export const useAppStore = defineStore("app", () => {
                     valid = false;
                 }
             });
-            return valid;
         }
+        if (step == 2 && !contract.value.plan.level) {
+            valid = false;
+        }
+        return valid;
     };
 
     const handleSubmit = (step) => {
@@ -122,5 +133,6 @@ export const useAppStore = defineStore("app", () => {
         contract,
         handleSubmit,
         formElementFocus,
+        selectedPlan,
     };
 });

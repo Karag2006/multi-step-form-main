@@ -6,12 +6,13 @@
 </script>
 
 <template>
-    <li>
+    <li :class="store.contract.plan.level == plan.level ? 'active' : ''">
         <input
             type="radio"
             :value="plan.level"
             v-model="store.contract.plan.level"
             :id="'PlanLavel' + plan.level"
+            class="radio"
         />
         <label class="checkmark" :for="'PlanLavel' + plan.level">
             <div>
@@ -35,16 +36,24 @@
 </template>
 
 <style lang="scss" scoped>
+    li {
+        border: 1px solid var(--cool-gray);
+        border-radius: 0.5rem;
+
+        &.active {
+            background-color: hsla(var(--hsl-magnolia), 0.8);
+        }
+    }
     .checkmark {
-        display: block;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+        cursor: pointer;
     }
 
     input {
         opacity: 0;
         position: absolute;
-
-        &:checked ~ .checkmark {
-            background-color: red;
-        }
     }
 </style>

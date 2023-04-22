@@ -4,6 +4,7 @@
 </script>
 
 <template>
+    <Navigation />
     <div class="card">
         <Navigation />
         <main>

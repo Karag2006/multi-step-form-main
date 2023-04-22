@@ -24,4 +24,14 @@
     </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+    input {
+        width: 100%;
+        padding: 0.8rem;
+        margin-block-start: 0.5rem;
+        border: 1px solid var(--cool-gray);
+        border-radius: 0.5rem;
+
+        font-size: 1.1rem;
+    }
+</style>

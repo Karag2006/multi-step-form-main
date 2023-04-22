@@ -1,16 +1,27 @@
-<script setup></script>
+<script setup>
+    import { RouterLink } from "vue-router";
+    import { useAppStore } from "../Store/AppStore";
+
+    const store = useAppStore();
+</script>
 
 <template>
-    <form @submit.prevent="">
+    <form @submit.prevent="store.handleSubmit(4)">
+        <h1>Finishing up</h1>
+        <p>Double check ....</p>
         <div>
-            <h1>Finishing up</h1>
-            <p>Double check ....</p>
             <div class="selectedPlan">
                 <div>
-                    <h3>Online Service</h3>
-                    <a href="/step1">Change</a>
+                    <h3>{{ store.selectedPlan.name }}</h3>
+                    <RouterLink :to="{ name: 'Step2' }">Change</RouterLink>
                 </div>
-                <p>9€/mo</p>
+                <p>
+                    {{
+                        store.contract.plan.monthly == true
+                            ? "$" + store.selectedPlan.mo + "/mo"
+                            : "$" + store.selectedPlan.yr + "/yr"
+                    }}
+                </p>
             </div>
             <div class="selectedAddOns">
                 <ul>
@@ -26,7 +37,7 @@
             </div>
         </div>
         <div class="form--navigation">
-            <a href="/step3">Go Back</a>
+            <RouterLink :to="{ name: 'Step3' }">Go Back</RouterLink>
             <button type="submit">Confirm</button>
         </div>
     </form>
