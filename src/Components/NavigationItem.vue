@@ -1,11 +1,16 @@
 <script setup>
-    import { RouterLink } from "vue-router";
+    import { RouterLink, useRoute } from "vue-router";
+
     const props = defineProps(["item"]);
+    const route = useRoute();
 </script>
 
 <template>
     <li>
-        <RouterLink :to="{ name: item.name }">
+        <RouterLink
+            :to="{ name: item.name }"
+            :class="route.name == item.name ? 'active' : ''"
+        >
             <span class="id">{{ item.id }}</span>
             <div>
                 <span class="name">
@@ -23,6 +28,13 @@
     a {
         text-decoration: none;
         font-size: 0.9rem;
+
+        &.active {
+            .id {
+                background: var(--magnolia);
+                color: var(--marine-blue);
+            }
+        }
         .id {
             display: grid;
             place-content: center;

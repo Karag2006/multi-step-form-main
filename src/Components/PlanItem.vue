@@ -40,6 +40,12 @@
         border: 1px solid var(--cool-gray);
         border-radius: 0.5rem;
 
+        &:hover,
+        &:focus,
+        &:focus-within {
+            border-color: var(--purplish-blue);
+        }
+
         &.active {
             background-color: hsla(var(--hsl-magnolia), 0.8);
         }

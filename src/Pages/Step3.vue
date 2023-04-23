@@ -26,4 +26,10 @@
     </form>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+    ul {
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr;
+        gap: 1rem;
+    }
+</style>

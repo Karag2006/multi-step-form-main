@@ -78,9 +78,7 @@ export const useAppStore = defineStore("app", () => {
             level: "",
             monthly: true,
         },
-        addOns: {
-            selected: [],
-        },
+        addOns: [],
     });
     const selectedPlan = computed(() => {
         if (contract.value.plan.level)
@@ -89,6 +87,24 @@ export const useAppStore = defineStore("app", () => {
             )[0];
 
         return { name: "N/A", mo: 0, yr: 0 };
+    });
+
+    const totalValue = computed(() => {
+        let total = 0;
+        if (contract.value.plan.level) {
+            const planValue = contract.value.plan.monthly
+                ? selectedPlan.value.mo
+                : selectedPlan.value.yr;
+            total = total + planValue;
+        }
+        contract.value.addOns.forEach((addOn) => {
+            const addOnValue = contract.value.plan.monthly
+                ? addOn.mo
+                : addOn.yr;
+            total = total + addOnValue;
+        });
+
+        return total;
     });
 
     const formElementFocus = (name) => {
@@ -134,5 +150,6 @@ export const useAppStore = defineStore("app", () => {
         handleSubmit,
         formElementFocus,
         selectedPlan,
+        totalValue,
     };
 });

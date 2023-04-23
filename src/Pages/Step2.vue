@@ -71,6 +71,13 @@
             width: 3rem;
             height: 1.5rem;
 
+            &:hover,
+            &:focus {
+                .slider:before {
+                    background-color: var(--cool-gray);
+                }
+            }
+
             input {
                 opacity: 0;
                 width: 0;

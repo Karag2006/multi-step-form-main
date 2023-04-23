@@ -2,6 +2,7 @@
 
 body {
     padding: 2rem 1rem;
+    letter-spacing: 0.02em;
     @include breakpoint {
         display: grid;
         place-items: center;
@@ -33,8 +34,7 @@ ul {
 p {
     color: var(--cool-gray);
     line-height: 1.6rem;
-    &.small {
-        font-size: 0.8rem;
+    &.blue {
         color: var(--marine-blue);
     }
 }
@@ -42,6 +42,13 @@ p {
 a {
     text-decoration: none;
     color: var(--light-gray);
+
+    &:hover,
+    &:focus {
+        color: var(--marine-blue);
+        border: none;
+        outline: none;
+    }
 }
 
 nav {
@@ -67,6 +74,10 @@ h2 {
     text-transform: uppercase;
 }
 
+.small {
+    font-size: 0.9rem;
+}
+
 .card {
     background: white;
     nav {
@@ -74,8 +85,8 @@ h2 {
     }
     @include breakpoint {
         display: flex;
-        height: 40rem;
-        width: 60rem;
+        min-height: 40rem;
+        width: 65rem;
         padding: 1rem;
 
         border-radius: 1rem;
@@ -86,6 +97,34 @@ h2 {
             background-size: cover;
             background-repeat: no-repeat;
             padding: 2rem 3rem;
+            border-radius: 1rem;
         }
+    }
+}
+
+.form--navigation {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+
+    button {
+        width: fit-content;
+        padding: 1rem 1.5rem;
+        justify-self: flex-end;
+        background-color: var(--marine-blue);
+        border: 0;
+        border-radius: 0.6rem;
+        color: white;
+        font-weight: 700;
+        cursor: pointer;
+
+        &:hover,
+        &:focus {
+            background-color: var(--purplish-blue);
+        }
+    }
+
+    a {
+        width: fit-content;
     }
 }
