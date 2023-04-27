@@ -92,14 +92,21 @@ h3 {
     }
 }
 
-#app {
+.wrapper {
     display: grid;
     grid-template-rows: auto 1fr auto;
+
+    @include breakpoint {
+        grid-template-rows: 1fr auto;
+        background: none;
+    }
+}
+
+#app {
     background-image: url("../assets/images/bg-sidebar-mobile.svg");
     background-repeat: no-repeat;
 
     @include breakpoint {
-        display: block;
         background: none;
     }
 }
@@ -125,6 +132,7 @@ h3 {
 
         nav {
             display: block;
+            width: 25rem;
             background: url("../assets/images/bg-sidebar-desktop.svg");
             background-size: cover;
             background-repeat: no-repeat;

@@ -9,13 +9,12 @@
 
     const route = useRoute();
     const currentRouteNumber = computed(() => {
-        return Number(route.name.substring(4, 5));
+        if (route.name) return Number(route.name.substring(4, 5));
     });
-    console.log(currentRouteNumber.value);
 </script>
 
 <template>
-    <div class="form--navigation">
+    <div class="form--navigation" v-if="currentRouteNumber < 5">
         <RouterLink
             :to="{ name: 'Step' + (currentRouteNumber - 1) }"
             v-if="currentRouteNumber > 1"
