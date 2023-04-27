@@ -22,9 +22,11 @@
     nav ul {
         list-style: none;
         display: flex;
-        justify-content: space-around;
+        justify-content: center;
+        gap: 1rem;
 
         @include breakpoint {
+            justify-content: space-around;
             flex-direction: column;
             gap: 2rem;
         }

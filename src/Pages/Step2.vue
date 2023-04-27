@@ -1,6 +1,6 @@
 <script setup>
     import { RouterLink } from "vue-router";
-    import { PlanItem } from "../Components";
+    import { PlanItem, FormNav } from "../Components";
     import { useAppStore } from "../Store/AppStore";
 
     const store = useAppStore();
@@ -35,19 +35,23 @@
                 </p>
             </div>
         </div>
-        <div class="form--navigation">
-            <RouterLink :to="{ name: 'Step1' }">Go Back</RouterLink>
-            <button type="submit">Next Step</button>
-        </div>
+        <FormNav />
     </form>
 </template>
 
 <style lang="scss" scoped>
+    @use "../scss/imports/mixins" as *;
     .planSelect ul {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
         gap: 1rem;
         width: 100%;
+
+        @include breakpoint {
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr;
+        }
     }
 
     .paymentSchedule {

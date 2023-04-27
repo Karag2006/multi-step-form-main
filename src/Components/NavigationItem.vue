@@ -9,7 +9,12 @@
     <li>
         <RouterLink
             :to="{ name: item.name }"
-            :class="route.name == item.name ? 'active' : ''"
+            :class="
+                route.name == item.name ||
+                (route.name == 'Step5' && item.name == 'Step4')
+                    ? 'active'
+                    : ''
+            "
         >
             <span class="id">{{ item.id }}</span>
             <div>

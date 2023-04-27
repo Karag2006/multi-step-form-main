@@ -1,5 +1,5 @@
 <script setup>
-    import { FormField } from "../Components";
+    import { FormField, FormNav } from "../Components";
     import { useAppStore } from "../Store/AppStore";
 
     const store = useAppStore();
@@ -26,10 +26,7 @@
                 placeholder="e.g. +1 234 567 890"
             />
         </div>
-        <div class="form--navigation">
-            <div></div>
-            <button type="submit">Next Step</button>
-        </div>
+        <FormNav />
     </form>
 </template>
 

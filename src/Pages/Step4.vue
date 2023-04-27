@@ -1,6 +1,7 @@
 <script setup>
     import { RouterLink } from "vue-router";
     import { useAppStore } from "../Store/AppStore";
+    import { FormNav } from "../Components";
 
     const store = useAppStore();
 </script>
@@ -59,10 +60,7 @@
                 </p>
             </div>
         </div>
-        <div class="form--navigation">
-            <RouterLink :to="{ name: 'Step3' }">Go Back</RouterLink>
-            <button type="submit">Confirm</button>
-        </div>
+        <FormNav buttonLabel="Confirm" />
     </form>
 </template>
 

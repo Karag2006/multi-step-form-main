@@ -135,7 +135,6 @@ export const useAppStore = defineStore("app", () => {
         if (handleStepValidation(step)) {
             // if valid router push next step.
             const nextStep = step + 1;
-            console.log(step);
             router.push({ name: "Step" + nextStep });
         }
     };

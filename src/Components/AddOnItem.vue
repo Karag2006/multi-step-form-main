@@ -34,6 +34,7 @@
 </template>
 
 <style lang="scss" scoped>
+    @use "../scss/imports/mixins" as *;
     li {
         border: 1px solid var(--cool-gray);
         border-radius: 0.5rem;
@@ -61,26 +62,38 @@
         }
     }
     .checkmark {
-        padding: 1rem;
         display: flex;
         align-items: center;
         gap: 1.5rem;
+        padding: 1rem;
         cursor: pointer;
-
+        p {
+            font-size: 0.6rem;
+        }
+        @include breakpoint {
+            p {
+                font-size: inherit;
+            }
+        }
         .marker {
             display: grid;
             place-content: center;
-            width: 1.3rem;
-            height: 1.3rem;
+            width: 1rem;
+            height: 1rem;
             border: 1px solid var(--cool-gray);
             border-radius: 4px;
+
+            @include breakpoint {
+                width: 1.3rem;
+                height: 1.3rem;
+            }
         }
 
         div:last-of-type {
             margin-inline-start: auto;
-            font-size: 0.9rem;
 
             .addedPrice {
+                font-size: 0.8rem;
                 color: var(--purplish-blue);
             }
         }

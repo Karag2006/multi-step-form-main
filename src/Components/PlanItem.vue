@@ -36,6 +36,7 @@
 </template>
 
 <style lang="scss" scoped>
+    @use "../scss/imports/mixins" as *;
     li {
         border: 1px solid var(--cool-gray);
         border-radius: 0.5rem;
@@ -51,11 +52,16 @@
         }
     }
     .checkmark {
-        padding: 1rem;
         display: flex;
-        flex-direction: column;
-        gap: 3rem;
+        flex-direction: row;
+        gap: 1rem;
+        padding: 1rem;
         cursor: pointer;
+
+        @include breakpoint {
+            flex-direction: column;
+            gap: 3rem;
+        }
     }
 
     input {
