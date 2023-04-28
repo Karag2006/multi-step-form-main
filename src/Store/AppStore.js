@@ -80,6 +80,13 @@ export const useAppStore = defineStore("app", () => {
         },
         addOns: [],
     });
+    const buttonDisabled = computed(() => {
+        if (contract.value.plan.level) {
+            return false;
+        }
+        return true;
+    });
+
     const selectedPlan = computed(() => {
         if (contract.value.plan.level)
             return plans.value.filter(
@@ -114,6 +121,7 @@ export const useAppStore = defineStore("app", () => {
 
     const handleStepValidation = (step) => {
         let valid = true;
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (step == 1) {
             const fields = Object.keys(contract.value.customer);
             fields.forEach((element) => {
@@ -123,6 +131,12 @@ export const useAppStore = defineStore("app", () => {
                     valid = false;
                 }
             });
+            if (!contract.value.customer.email.match(emailPattern) && valid) {
+                valid = false;
+                errors.value.email =
+                    "You need to provide a valid Email Address";
+                classes.value.email = "error";
+            }
         }
         if (step == 2 && !contract.value.plan.level) {
             valid = false;
@@ -150,5 +164,6 @@ export const useAppStore = defineStore("app", () => {
         formElementFocus,
         selectedPlan,
         totalValue,
+        buttonDisabled,
     };
 });

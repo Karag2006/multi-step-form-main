@@ -21,7 +21,17 @@
             >Go Back</RouterLink
         >
         <div v-else></div>
-        <button type="button" @click="store.handleSubmit(currentRouteNumber)">
+        <div
+            v-if="currentRouteNumber == 2 && store.buttonDisabled"
+            class="button disabled"
+        >
+            {{ buttonLabel ? buttonLabel : "Next Step" }}
+        </div>
+        <button
+            v-else
+            type="button"
+            @click="store.handleSubmit(currentRouteNumber)"
+        >
             {{ buttonLabel ? buttonLabel : "Next Step" }}
         </button>
     </div>

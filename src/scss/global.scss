@@ -160,7 +160,9 @@ h3 {
     @include breakpoint {
         display: none;
     }
-    button {
+
+    button,
+    .button {
         width: fit-content;
         padding: 0.8rem 1rem;
         justify-self: flex-end;
@@ -169,6 +171,7 @@ h3 {
         border-radius: 0.4rem;
         color: white;
         font-weight: 700;
+        font-family: var(--font-family);
         cursor: pointer;
 
         @include breakpoint {
@@ -179,6 +182,15 @@ h3 {
         &:hover,
         &:focus {
             background-color: var(--purplish-blue);
+        }
+
+        &.disabled {
+            opacity: 0.5;
+            cursor: default;
+
+            &:hover {
+                background-color: var(--marine-blue);
+            }
         }
     }
 
